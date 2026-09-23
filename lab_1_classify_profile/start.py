@@ -3,7 +3,17 @@ Language detection starter.
 """
 
 # pylint: disable=unused-variable, duplicate-code
-from main import (tokenize, remove_stop_words, calculate_frequencies, get_top_n_words, create_language_profile, check_profile, compare_profiles_by_top_n, detect_language_by_top_n)
+from main import (
+    calculate_frequencies,
+    check_profile,
+    compare_profiles_by_top_n,
+    create_language_profile,
+    detect_language_by_top_n,
+    get_top_n_words,
+    remove_stop_words,
+    tokenize,
+)
+
 
 def main():
     """
@@ -44,6 +54,7 @@ def main():
     result = detect_language_by_top_n(unknown_profile, en_profile, de_profile, 15)
     assert result, "Detection result is None"
     print('Detected Language: ', result)
+
 
 if __name__ == "__main__":
     main()
