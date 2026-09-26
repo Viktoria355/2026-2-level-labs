@@ -39,20 +39,15 @@ def main():
     en_profile = create_language_profile('en', en_text, stopwords)
     de_profile = create_language_profile('de', de_text, stopwords)
     unknown_profile = create_language_profile('unknown', unknown_text, stopwords)
-    print('En_profile:', en_profile)
-    print('De_profile:', de_profile)
-    print('Unknown profile: ', unknown_profile)
-    print('En works: ', check_profile(en_profile))
-    print('De works: ', check_profile(de_profile))
-    print('Unknown profile works: ', check_profile(unknown_profile))
+    if not check_profile(en_profile) or not check_profile(de_profile) or not check_profile(unknown_profile):
+        return
 
     comparison_en = compare_profiles_by_top_n(unknown_profile, en_profile, 15)
     comparison_de = compare_profiles_by_top_n(unknown_profile, de_profile, 15)
-    print('Comparison with en: ', comparison_en)
-    print('Comparison with de: ', comparison_de)
+    if comparison_en is None or comparison_de is None:
+        return
 
     result = detect_language_by_top_n(unknown_profile, en_profile, de_profile, 15)
-    assert result, "Detection result is None"
     print('Detected Language: ', result)
 
 
