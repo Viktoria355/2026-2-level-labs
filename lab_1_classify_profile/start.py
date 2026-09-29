@@ -18,7 +18,7 @@ from lab_1_classify_profile.main import (
 )
 
 
-def main():
+def main() -> None:
     """
     Launches an implementation.
     """
