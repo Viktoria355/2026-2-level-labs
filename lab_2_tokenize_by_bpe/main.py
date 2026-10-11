@@ -64,9 +64,7 @@ def collect_frequencies(
         right_word = prepare_word(raw_word, start_of_word, end_of_word)
         if right_word is None:
             return None
-        if right_word not in word_frequencies:
-            word_frequencies[right_word] = 0
-        word_frequencies[right_word] += 1
+        word_frequencies[right_word] = word_frequencies.get(right_word, 0) + 1
     return word_frequencies
 
 def count_tokens_pairs(
