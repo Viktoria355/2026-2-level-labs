@@ -30,7 +30,7 @@ def prepare_word(
         return None
     word = list(raw_word)
     if start_of_word is not None:
-        word = [start_of_word] + word
+        word.insert(0, start_of_word)
     if end_of_word is not None:
         word.append(end_of_word)
     return tuple(word)
