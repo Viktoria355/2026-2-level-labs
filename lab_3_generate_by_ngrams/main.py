@@ -48,14 +48,15 @@ class TextProcessor:
         words = text.lower().split()
         tokens = []
         for word in words:
+            clean_word = ""
             for symbol in word:
-                if not symbol.isalpha():
-                    word = word.replace(symbol, "")
-            if word:
-                for ch in word:
+                if symbol.isalpha():
+                    clean_word += symbol
+            if clean_word:
+                for ch in clean_word:
                     tokens.append(ch)
                 tokens.append(self._end_of_word_token)
-        if text[-1:].isalpha() and tokens:
+        if text[-1].isalpha() and tokens:
             tokens = tokens[:-1]
         if not tokens:
             return None
@@ -184,7 +185,7 @@ class TextProcessor:
         Args:
             content (dict): ngrams from external JSON
         """
-        pass
+
 
     def _decode(self, corpus: tuple[int, ...]) -> tuple[str, ...] | None:
         """
