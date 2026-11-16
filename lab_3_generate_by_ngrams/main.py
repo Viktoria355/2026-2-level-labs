@@ -220,7 +220,6 @@ class TextProcessor:
                 if symb.isalpha():
                     self._put(symb.lower())
 
-
     def _decode(self, corpus: tuple[int, ...]) -> tuple[str, ...] | None:
         """
         Decode sentence by replacing ids with corresponding letters.
